@@ -1,6 +1,10 @@
 const fs = require("fs");
 const path = require("path");
-const { Blockchain, Block, Transaction } = require("./blockchain/assetBlockchain");
+const {
+  Blockchain,
+  Block,
+  Transaction,
+} = require("./blockchain/assetBlockchain");
 const { DIRECTORIES, WALLET_ADDRESS, PRIVATE_KEY } = require("./constants");
 
 function main() {
@@ -77,14 +81,14 @@ function encodeAsset() {
 
 main()
   .then((data) => {
-    const blockchain = new Blockchain()
+    const blockchain = new Blockchain();
     for (content of data) {
       if (content !== "") {
-        const tx1 = new Transaction(WALLET_ADDRESS, 100, content)
-        tx1.signTransaction(PRIVATE_KEY)
-        blockchain.addTransaction(tx1)
-        blockchain.addBlock(new Block(content))
+        const tx1 = new Transaction(WALLET_ADDRESS, 100, content);
+        tx1.signTransaction(PRIVATE_KEY);
+        blockchain.addTransaction(tx1);
+        blockchain.addBlock(new Block(content));
       }
-    } 
+    }
   })
   .catch((err) => console.log(err.message));
