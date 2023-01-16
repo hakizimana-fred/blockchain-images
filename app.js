@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const { Blockchain, Block } = require("./blockchain/assetBlockchain");
-const { DIRECTORIES } = require("./constants");
+const { Blockchain, Block, Transaction } = require("./blockchain/assetBlockchain");
+const { DIRECTORIES, WALLET_ADDRESS, PRIVATE_KEY } = require("./constants");
 
 function main() {
   // first encode assets
@@ -12,7 +12,6 @@ function main() {
     fs.readFileSync(`assetsEncoded/encoded.txt`, "utf-8")
       .split(/\r?\n/)
       .forEach(function (line) {
-        
         lines.push(line);
       });
     lines.length > 0 ? resolve(lines) : reject("Something went wrong");
@@ -78,12 +77,14 @@ function encodeAsset() {
 
 main()
   .then((data) => {
-   const blockchain = new Blockchain()
-   for (content of data) {
-       if (content !== '') {
-         blockchain.addBlock(new Block(content))
-       }
-   } 
+    const blockchain = new Blockchain()
+    for (content of data) {
+      if (content !== "") {
+        const tx1 = new Transaction(WALLET_ADDRESS, 100, content)
+        tx1.signTransaction(PRIVATE_KEY)
+        blockchain.addTransaction(tx1)
+        blockchain.addBlock(new Block(content))
+      }
+    } 
   })
   .catch((err) => console.log(err.message));
-
