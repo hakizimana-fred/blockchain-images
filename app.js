@@ -33,6 +33,24 @@ function encodeAsset() {
               );
             }
           );
+        }else {
+          // if file doesn't exist
+          fs.mkdirSync(encodedAssetsPath)
+          const imagesHexEncode = new Buffer(image).toString("hex");
+          const save = `${imagesHexEncode}\n`;
+          // first clear content
+          fs.truncate(
+            `${DIRECTORIES.assetsEncoded}/${DIRECTORIES.encodedTxt}`,
+            0,
+            function () {
+              // append contents
+              fs.appendFileSync(
+                `${DIRECTORIES.assetsEncoded}/${DIRECTORIES.encodedTxt}`,
+                save,
+                "utf-8"
+              );
+            }
+          );
         }
       } catch (err) {
         console.log(err.message);
