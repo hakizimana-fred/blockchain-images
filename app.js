@@ -12,6 +12,7 @@ function main() {
     fs.readFileSync(`assetsEncoded/encoded.txt`, "utf-8")
       .split(/\r?\n/)
       .forEach(function (line) {
+        
         lines.push(line);
       });
     lines.length > 0 ? resolve(lines) : reject("Something went wrong");
@@ -77,10 +78,12 @@ function encodeAsset() {
 
 main()
   .then((data) => {
-    for (content of data) {
-      // store contents in blockchain
-      const blockchain = new Blockchain(new Block(content));
-      console.log(blockchain);
-    }
+   const blockchain = new Blockchain()
+   for (content of data) {
+       if (content !== '') {
+         blockchain.addBlock(new Block(content))
+       }
+   } 
   })
   .catch((err) => console.log(err.message));
+

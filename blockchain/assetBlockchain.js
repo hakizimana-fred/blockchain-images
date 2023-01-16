@@ -20,7 +20,7 @@ class Blockchain {
   // Add transactions
   addBlock(newBlock) {
     newBlock.time = new Date().getTime();
-    newBlock.size = this.chain.length;
+    newBlock.size = this.chain.length
     // get previous hash if chain is > 0
     if (this.chain.length > 0) {
       newBlock.previousBlockHash = this.chain[this.chain.length - 1].hash;
