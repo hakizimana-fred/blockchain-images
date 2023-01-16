@@ -1,6 +1,22 @@
 const fs = require("fs");
 const path = require("path");
+const { blockchain } = require("./blockchain/assetBlockchain");
 const { DIRECTORIES } = require("./constants");
+
+
+function main() {
+  // first encode assets
+    encodeAsset()
+    return new Promise((resolve, reject) => {
+        // read encoded data
+    })
+}
+
+main()
+  .then(data => {
+    console.log(data)
+  })
+
 
 // asset Encoder function
 function encodeAsset() {
@@ -59,4 +75,3 @@ function encodeAsset() {
   }
 }
 
-encodeAsset();
