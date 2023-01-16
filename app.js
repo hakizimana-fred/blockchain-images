@@ -1,22 +1,22 @@
 const fs = require("fs");
 const path = require("path");
-const { blockchain } = require("./blockchain/assetBlockchain");
+const { Blockchain, Block } = require("./blockchain/assetBlockchain");
 const { DIRECTORIES } = require("./constants");
-
 
 function main() {
   // first encode assets
-    encodeAsset()
-    return new Promise((resolve, reject) => {
-        // read encoded data
-    })
+  encodeAsset();
+  return new Promise((resolve, reject) => {
+    const lines = [];
+    // read encoded data
+    fs.readFileSync(`assetsEncoded/encoded.txt`, "utf-8")
+      .split(/\r?\n/)
+      .forEach(function (line) {
+        lines.push(line);
+      });
+    lines.length > 0 ? resolve(lines) : reject("Something went wrong");
+  });
 }
-
-main()
-  .then(data => {
-    console.log(data)
-  })
-
 
 // asset Encoder function
 function encodeAsset() {
@@ -49,9 +49,9 @@ function encodeAsset() {
               );
             }
           );
-        }else {
+        } else {
           // if file doesn't exist
-          fs.mkdirSync(encodedAssetsPath)
+          fs.mkdirSync(encodedAssetsPath);
           const imagesHexEncode = new Buffer(image).toString("hex");
           const save = `${imagesHexEncode}\n`;
           // first clear content
@@ -75,3 +75,12 @@ function encodeAsset() {
   }
 }
 
+main()
+  .then((data) => {
+    for (content of data) {
+      // store contents in blockchain
+      const blockchain = new Blockchain(new Block(content));
+      console.log(blockchain);
+    }
+  })
+  .catch((err) => console.log(err.message));

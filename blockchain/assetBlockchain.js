@@ -1,4 +1,4 @@
-const SHA256 = require('crypto-js/sha256')
+const SHA256 = require("crypto-js/sha256");
 
 class Block {
   constructor(data) {
@@ -14,29 +14,27 @@ class Blockchain {
   constructor() {
     this.chain = [];
     // First block transaction
-    this.addBlock(this.genesisBlock())
+    this.addBlock(this.genesisBlock());
   }
 
   // Add transactions
   addBlock(newBlock) {
-    // hash data
-    newBlock.size = this.chain.length
-    newBlock.time = new Date().getTime()
-    newBlock.hash = SHA256(JSON.stringify(newBlock)).toString()
+    newBlock.time = new Date().getTime();
+    newBlock.size = this.chain.length;
     // get previous hash if chain is > 0
     if (this.chain.length > 0) {
-        newBlock.previousBlockHash = this.chain[this.chain.length - 1].hash
+      newBlock.previousBlockHash = this.chain[this.chain.length - 1].hash;
     }
-    this.chain.push(newBlock)
+    newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
+    this.chain.push(newBlock);
   }
 
   genesisBlock() {
-    return new Block("Genesis data")
+    return new Block("Genesis data");
   }
 }
 
-const blockchain = new Blockchain()
-
 module.exports = {
-  blockchain 
-}
+  Blockchain,
+  Block,
+};
