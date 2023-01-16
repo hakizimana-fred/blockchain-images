@@ -1,5 +1,23 @@
 const SHA256 = require("crypto-js/sha256");
 
+class Transaction {
+  constructor(myAddress, amount, data) {
+    this.myAddress = myAddress
+    this.amount = amount
+    this.data = data
+    this.time = Date(),
+  }
+
+  hashTransaction() {
+    const transactionData = {
+      address: this.myAddress,
+      data: this.data,
+      amount:this.amount
+    }
+    return SHA256(JSON.stringify(transactionData)).toString()
+  }
+}
+
 class Block {
   constructor(data) {
     this.hash = "";
@@ -34,7 +52,9 @@ class Blockchain {
   }
 }
 
+
 module.exports = {
   Blockchain,
   Block,
+  Transaction
 };
