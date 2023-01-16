@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap");
 
-*{
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 1.3rem;
-  
-    line-height: 1.7;
-    font-family: "Rubik", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background: #191c24;
-    color: #fff;
+  font-size: 1.3rem;
+
+  line-height: 1.7;
+  font-family: "Rubik", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #191c24;
+  color: #fff;
 }
 
 a {
@@ -38,9 +38,9 @@ h3 {
   font-weight: 300;
 }
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .btn {
@@ -59,84 +59,83 @@ h3 {
   text-transform: uppercase;
 }
 
-
 nav .container {
-    display: flex;
-    height: 60px;
-    padding: 20px 40px;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  height: 60px;
+  padding: 20px 40px;
+  align-items: center;
+  justify-content: space-between;
 }
 nav ul {
-    display: flex;
+  display: flex;
 }
 
-nav ul li a:hover{
-    border-bottom: 2px solid #262626;
+nav ul li a:hover {
+  border-bottom: 2px solid #262626;
 }
-nav ul li a{
-    padding-bottom: 2px;
+nav ul li a {
+  padding-bottom: 2px;
 }
 
-nav ul li{
-    padding: 0 10px;
+nav ul li {
+  padding: 0 10px;
 }
 .navbar-brand {
-    display: inline-block;
-    padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    line-height: inherit;
-    white-space: nowrap;
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
 }
 
 .header-intro .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 110px;
 }
 
 .header-intro img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .content {
-    width: 55%;
-    padding: 100px 0 0 30px;
+  width: 55%;
+  padding: 100px 0 0 30px;
 }
 .content-text {
-    font-size: 22px;
-    margin-bottom: 20px;
-    line-height: 2;
-    color: #ddd;
+  font-size: 22px;
+  margin-bottom: 20px;
+  line-height: 2;
+  color: #ddd;
 }
 .text-lg {
-    font-size: 50px;
-    font-weight: bold;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .about-me {
-        padding: 40px;
-        margin-bottom: 70px;
+  padding: 40px;
+  margin-bottom: 70px;
 }
 
 .about-border {
-    border: 4px solid gray;
-    border-radius: 16px;
-    padding: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  border: 4px solid gray;
+  border-radius: 16px;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .about-text {
-    width: 80%;
-    padding: 20px 0 0  70px;
+  width: 80%;
+  padding: 20px 0 0 70px;
 }
 
 .swiper {
@@ -144,36 +143,35 @@ nav ul li{
   height: 300px;
 }
 .swiper-slide .card {
-    background: #fff;
-    color: #333;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    width: 100%
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 .card {
-    background: #fff;
-    color: #333;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    margin: 10px;
-    padding: 10px;
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding: 10px;
 }
 .card h3 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .blogs__wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    padding: 0 40px;
-    margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 0 40px;
+  margin-bottom: 20px;
 }
 
-.blog-card span{
-    color: gray;
-    margin-left: 250px;
-
+.blog-card span {
+  color: gray;
+  margin-left: 250px;
 }
 
 .languages .flex {
